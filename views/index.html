@@ -15,7 +15,11 @@
     
       <!-- display tweets here -->
       {% for tweet in tweets %}
+      <div class='tweetbox content'>
+      <img>
+      	<li class='by'>{{tweet.name}}</li>
         <li>{{tweet.text}}</li>
+      </div>
       {% endfor %}
       
     </div>

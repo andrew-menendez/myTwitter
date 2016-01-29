@@ -14,10 +14,10 @@ this one is self defined as opposed to the express static method.
 */ 
 
 router.get('/', function (req, res) {
-  var tweets = tweetBank.list();
+  var dataTweets = tweetBank.list();
   console.log('fuck this')
-  console.log(tweets)
-  res.render( 'index', { title: 'Twitter.js', people:tweets} );
+  console.log(dataTweets)
+  res.render( 'index', { title: 'Twitter.js', tweets:dataTweets} );
 });
 
 
@@ -25,6 +25,7 @@ router.get('/special', function (req, res) {
   res.send('Hello Special!');
   console.log('Time:', Date.now());
   console.log('reached special');
+  next();
 
 });
 
