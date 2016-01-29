@@ -1,7 +1,10 @@
+
 var express = require( 'express' );
+var swig = require( 'swig' );
 
 var app = express(); // creates an instance of an express application
 
+//var mySwig= new swig;
 
 
 
@@ -23,9 +26,9 @@ app.use('/special',function (req, res, next) {
   next();
 });
 
-app.get('/', function (req, res) {
-  res.send('Hello World!');
-});
+// app.get('/', function (req, res) {
+//   res.send('Hello World!');
+// });
 
 app.get('/special', function (req, res) {
   res.send('Hello Special!');
@@ -41,6 +44,26 @@ app.get('/news', function (req, res) {
 app.listen(3000, function () {
   console.log('Server Listening');
 });
+
+/// Swig section:
+swig.setDefaults({ cache: false });
+// This is where all the magic happens!
+app.engine('html', swig.renderFile);
+
+app.set('view engine', 'html');
+app.set('views', './views');
+
+
+app.get('/', function (req, res) {
+	var people = [{name: 'Full'}, {name: 'Stacker'}, {name: 'Son'}];
+	res.render( 'index', {title: 'Hall of Fame', people: people} );
+  	//res.render('index', {'title':'an example','people':[{'name':'guy'},{'name':'dude'},{'name':'man'}]});
+});
+// the things in the {} of the render function are the local variables to this template.
+
+
+
+
 
 
 

@@ -4,13 +4,14 @@
   "description": "classproject",
   "main": "index.js",
   "scripts": {
-    "start":"nodemon app.js",
+    "start": "nodemon app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "chalk": "^1.1.1",
-    "express": "^4.13.4"
+    "express": "^4.13.4",
+    "swig": "^1.4.2"
   }
 }
