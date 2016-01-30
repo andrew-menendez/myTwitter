@@ -17,3 +17,12 @@ app.use('/special',function (req, res, next) {
   //console.log('reqest', req.headers);
   next();
 });
+
+
+
+
+app.get('/', function (req, res) {
+	var people = [{name: 'Full'}, {name: 'Stacker'}, {name: 'Son'}];
+	res.render( 'index', {title: 'Hall of Fame', people: people} );
+  	//res.render('index', {'title':'an example','people':[{'name':'guy'},{'name':'dude'},{'name':'man'}]});
+});

@@ -1,9 +1,19 @@
 var _ = require('lodash');
 
 var data=[];
+var idArray=[0];
 
 function add (name, text) {
-  data.push({ name: name, text: text });
+  
+
+  lastId=idArray[0];
+  uniqueId=lastId+1;
+
+  userName=name.split(" ")[0]+name.split(" ")[1]
+  userName=userName.toLowerCase();
+
+  data.push({ userName:userName, name: name, text: text, id:uniqueId });
+  idArray.unshift(uniqueId);
 }
 
 function list () {
@@ -48,9 +58,13 @@ for (var i = 0; i < 10; i++) {
 
 console.log(data);
 
+console.log(idArray);
+
 console.log(module.exports.list());
 
 
+//console.log(module.exports.find({'name':'Nimit'}));
+//console.log(module.exports.find({'name':'Dave'}));
 
 
 
