@@ -5,15 +5,15 @@ var idArray=[0];
 
 function add (name, text) {
   
-
-  lastId=idArray[0];
+  arrLength=idArray.length;
+  lastId=idArray[arrLength-1];
   uniqueId=lastId+1;
 
   userName=name.split(" ")[0]+name.split(" ")[1]
   userName=userName.toLowerCase();
 
   data.push({ userName:userName, name: name, text: text, id:uniqueId });
-  idArray.unshift(uniqueId);
+  idArray.push(uniqueId);
 }
 
 function list () {
@@ -52,7 +52,7 @@ var getFakeTweet = function() {
   return "Fullstack Academy is " + randArrayEl(awesome_adj) + "! The instructors are just so " + randArrayEl(awesome_adj) + ". #fullstacklove #codedreams";
 };
 
-for (var i = 0; i < 10; i++) {
+for (var i = 0; i < 5; i++) {
   module.exports.add( getFakeName(), getFakeTweet() );
 }
 
